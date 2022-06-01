@@ -19,15 +19,15 @@ if(isset($_POST['login'])){
                 header("location: ../pages/owngames.php");
             } 
             else {
-                header("location: ../pages/owngames.php?error=1");
+                header("location: ../pages/login.php?error=1");
             }
         } 
         else {
-            header("location: ../pages/owngames.php?error=1");
+            header("location: ../pages/login.php?error=1");
         }
     }
     else {
-        header("location: ../pages/owngames.php?error=2");
+        header("location: ../pages/login.php?error=2");
     }
 }
 ?>
