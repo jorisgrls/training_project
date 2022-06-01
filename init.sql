@@ -14,6 +14,7 @@ CREATE TABLE editors
 CREATE TABLE games
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    img VARCHAR(255),
     title VARCHAR(255),
     description TEXT,
     nb_players VARCHAR(10),

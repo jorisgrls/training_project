@@ -14,6 +14,7 @@ if(isset($_POST['login'])){
         if (count($getUser) == 1) {
             $user = $getUser[0];
             if (password_verify($password, $user['password'])) {
+                $_SESSION['id'] = $user['id'];
                 $_SESSION['name'] = $name;
                 $_SESSION['auth'] = 1;
                 header("location: ../pages/owngames.php");
