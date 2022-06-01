@@ -1,21 +1,33 @@
 <?php
 
 session_start();
- 
-include("config.php"); 
+
+include(__DIR__."/../config.php"); 
 if(isset($_POST['login'])){
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $sql = "SELECT * FROM users WHERE name = '$name' AND password = '$password'";
-    $result = $connection->query($sql);
-    $row = $result->fetch(PDO::FETCH_ASSOC);
-    if($row['name'] == $name && $row['password'] == $password){
-        $_SESSION['name'] = $name;
-        $_SESSION['password'] = $password;
-        header("location: ../pages/owngames.php");
+    if (!empty($_POST['name']) && !empty($_POST['password'])) {
+        $name = $_POST['name'];
+        $password = $_POST['password'];
+        $getUser = "SELECT * FROM users WHERE name = '$name'";
+        $getUserStatement = $login->prepare($getUser);
+        $getUserStatement->execute();
+        $getUser = $getUserStatement->fetchAll();
+        if (count($getUser) == 1) {
+            $user = $getUser[0];
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['name'] = $name;
+                $_SESSION['auth'] = 1;
+                header("location: ../pages/owngames.php");
+            } 
+            else {
+                header("location: ../pages/owngames.php?error=1");
+            }
+        } 
+        else {
+            header("location: ../pages/owngames.php?error=1");
+        }
     }
-    else{
-        echo "Mauvais identifiants";
+    else {
+        header("location: ../pages/owngames.php?error=2");
     }
 }
 ?>

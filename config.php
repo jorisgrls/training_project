@@ -5,11 +5,12 @@
     define('BASE',"training_project");
 
     $dsn="mysql:dbname=".BASE.";host=".SERVER;
+    
     try{
-        $connection = new PDO($dsn,USER,PASSWORD);
+        $login = new PDO($dsn,USER,PASSWORD);
     }
     catch(PDOException $e){
-        printf("Failed connection : %s\n", $e->getMessage());
+        printf("Failed login : %s\n", $e->getMessage());
     exit();
     }
 ?>
