@@ -2,6 +2,9 @@
     include(__DIR__."/../config.php"); 
     if(!empty($_SESSION['id'])){
         $id = $_SESSION['id'];
+
+        getGames($id, 1, 0);
+        
         $getGames = "SELECT g.*, e.name AS name_editor FROM usersgames ug INNER JOIN games g ON ug.game_id = g.id INNER JOIN editors e ON g.id_editor = e.id WHERE ug.user_id = '$id' AND ug.is_own = 1";
         $getGamesStatement = $login->prepare($getGames);
         $getGamesStatement->execute();
@@ -23,4 +26,10 @@
                     </div>");
         }
     }    
+
+
+
+    function getGames($id, $isOwn = 1, $isWishlist = 0) {
+        $getGamesQuery = "SELECT g.*, e.name AS name_editor FROM usersgames ug INNER JOIN games g ON ug.game_id = g.id INNER JOIN editors e ON g.id_editor = e.id WHERE ug.user_id = '$id' AND ug.is_own = '$isOwn' AND ug.is_wishlist = '$isWishlist'";
+    }
 ?>
