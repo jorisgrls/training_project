@@ -1,3 +1,14 @@
+<?php 
+    $error = "";
+    if (isset($_GET['error'])) {
+        if ($_GET['error'] == 1) {
+            $error = "Your name or password are incorrect.";
+        }
+        else if ($_GET['error'] == 2) {
+            $error = "One of the fields is empty.";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,19 +30,12 @@
                                 <div class="text-center">
                                     <h4 class="mt-1 mb-5 pb-1">Toy Library</h4>
                                 </div>
-                                <?php
-                                    if(!empty($_GET['error']) && $_GET['error'] == 1){
-                                        echo "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
-                                        <strong>Oops ! </strong> Your name or password are incorrect.
-                                        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
-                                      </div>";
-                                    } elseif(!empty($_GET['error']) && $_GET['error'] == 2){
-                                        echo "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
-                                        <strong>Oops ! </strong> One of the fields is empty.
-                                        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
-                                      </div>";
-                                    };
-                                ?>
+                                <?php if (isset($_GET['error'])) { ?>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>Oops ! </strong> <?php echo($error)?>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                <?php } ?>
                                 <form action="../controllers/connexion.php" method="post">
                                     <p>Please login to your account</p>
                                     <div class="form-outline mb-4">

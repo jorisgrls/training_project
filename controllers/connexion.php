@@ -14,6 +14,7 @@
             if (password_verify($password, $user['password'])) {
                 $_SESSION['name'] = $name;
                 $_SESSION['auth'] = 1;
+                $_SESSION['id'] = $user['id'];
                 header("location: ../pages/owngames.php");
             } 
             else {
