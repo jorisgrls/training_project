@@ -1,5 +1,8 @@
 <?php 
     session_start(); 
+    if(isset($_SESSION['auth']) && $_SESSION['auth'] == 1) {
+        header('Location: ../pages/owngames.php');
+    }
     $error = "";
     if (isset($_GET['error'])) {
         if ($_GET['error'] == 1) {
@@ -15,7 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<, initial-scale=1.0">
+    <meta name="viewport" content="device-width, initial-scale=1.0">
     <title>Toy Library : log in</title>
     <?php include("../includes/css.php");?>
     <link href="../css/login.css" rel="stylesheet">
@@ -66,6 +69,6 @@
         
     </section>
     </div>
-    <script src="../externals/bootstrap/js/bootstrap.min.js"></script>
+    <?php include("../includes/js.php");?>
 </body>
 </html>
