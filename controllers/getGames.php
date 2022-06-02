@@ -19,10 +19,10 @@
                                 <p class='card-text'>$nb_players joueurs<br>$name_editor</p>
                                 ");
                                 if ($isOwn == 1) {  
-                                    echo("<a href='#' class='btn btn-primary w-100'>JE N'AI PLUS</a>");
+                                    echo("<button class='btn btn-primary w-100' data-toggle='modal' data-target='#exampleModalCenter'>JE N'AI PLUS</button>");
                                 }else{
-                                    echo("<a href='#' class='btn btn-primary w-100'>JE L'AI</a>
-                                        <a href='#' class='btn btn-primary w-100 mt-2'>ENLEVER DE LE WISHLIST</a>");
+                                    echo("<button href='#' class='btn btn-primary w-100'>JE L'AI</button>
+                                        <button href='#' class='btn btn-primary w-100 mt-2'>ENLEVER DE LE WISHLIST</button>");
                                     
                                 }
                                 echo("
