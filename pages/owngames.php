@@ -1,11 +1,14 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+include("../controllers/getGames.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes jeux</title>
+    <title>Toy Library : my games</title>
     <?php include("../includes/css.php");?>
     <link href="../css/owngames.css" rel="stylesheet">
 </head>
@@ -21,16 +24,16 @@
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">My games</a>
+                                <a class="nav-link" href="owngames.php">My games</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Wishlist</a>
+                                <a class="nav-link" href="wishlist.php">Wishlist</a>
                             </li>
                         </ul>
                         <div class="dropdown ml-auto">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="../controllers/logout.php">Logout</a>
                             </div>
                         </div>
                     </div>
@@ -40,7 +43,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <?php include("../controllers/getGames.php")?>
+            <?php getGames($_SESSION['id'], 1, 0); ?>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
