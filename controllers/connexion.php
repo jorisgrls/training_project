@@ -9,12 +9,12 @@
         $getUserStatement = $login->prepare($getUserQuery);
         $getUserStatement->execute();
         $users = $getUserStatement->fetchAll();
-        if (count($getUser) == 1) {
+        if (count($users) == 1) {
             $user = $users[0];
             if (password_verify($password, $user['password'])) {
+                $_SESSION['id'] = $user['id'];
                 $_SESSION['name'] = $name;
                 $_SESSION['auth'] = 1;
-                $_SESSION['id'] = $user['id'];
                 header("location: ../pages/owngames.php");
             } 
             else {
