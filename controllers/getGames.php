@@ -11,7 +11,7 @@
             $img = $getGames[$i]['img'];
             $nb_players = $getGames[$i]['nb_players'];
             $name_editor = $getGames[$i]['name_editor'];
-            echo (" <div class='col-3 mt-4'>
+            echo (" <div id='id_$id' class='col-3 mt-4'>
                         <div class='card'>
                             <img class='card-img-top' data-id='$id' src='$img' alt='image $title'>
                             <div class='card-body text-center'>

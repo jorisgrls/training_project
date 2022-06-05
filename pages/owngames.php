@@ -47,7 +47,7 @@ include("../controllers/getGames.php");
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-success">REMOVE</button>
+                    <button id="removeOwnGame" type="button" class="btn btn-outline-success">REMOVE</button>
                 </div>
             </div>
         </div>
