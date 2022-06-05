@@ -15,6 +15,7 @@ include("../controllers/getGames.php");
 </head>
 <body>
     <?php include("../includes/navbar.php");?>
+    <?php include("../includes/search.php");?>
     <div class="container">
         <div class="row">
             <?php getGames($_SESSION['id'], 1, 0); ?>
