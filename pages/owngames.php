@@ -17,7 +17,7 @@ include("../controllers/getGames.php");
     <?php include("../includes/navbar.php");?>
     <?php include("../includes/search.php");?>
     <div class="container">
-        <div class="row">
+        <div class="row align-items-start">
             <?php getGames($_SESSION['id'], 1, 0); ?>
         </div>
     </div>
