@@ -47,8 +47,8 @@ include("../controllers/getGames.php");
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-success">ADD TO OWN GAMES</button>
-                    <button type="button" class="btn btn-outline-info">REMOVE OF WISHLIST</button>
+                    <button id="removeWishlistAddOwnGames" type="button" class="btn btn-outline-success">ADD TO OWN GAMES</button>
+                    <button id="removeWishlist" type="button" class="btn btn-outline-info">REMOVE OF WISHLIST</button>
                 </div>
             </div>
         </div>

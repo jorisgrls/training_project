@@ -40,5 +40,7 @@ INSERT INTO games(title,description,nb_players,nb_recommanded_players,id_editor)
 INSERT INTO usersgames(user_id,game_id,is_wishlist,is_own) VALUES ('1','1',1,0),('1','2',0,1),('2','1',0,1),('2','2',0,1);
 
 
+--UPDATE usersgames SET is_wishlist = 1, is_own = 0 WHERE user_id = $user_id AND game_id = $gameId
+--UPDATE usersgames SET is_wishlist = 0, is_own = 1 WHERE user_id = $user_id AND game_id = $gameId
 
 --SELECT g.*, e.name AS name_editor FROM usersgames ug INNER JOIN games g ON ug.game_id = g.id INNER JOIN editors e ON g.id_editor = e.id WHERE ug.user_id = 2 AND ug.is_wishlist = 1;
