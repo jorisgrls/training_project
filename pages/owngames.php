@@ -15,15 +15,13 @@ include("../controllers/getGames.php");
 </head>
 <body>
     <?php include("../includes/navbar.php");?>
-    <?php include("../includes/search.php");?>
     <div class="container">
         <div class="row align-items-start">
             <?php getGames($_SESSION['id'], 1, 0); ?>
         </div>
     </div>
-    <?php include("../includes/js.php");?>
     <div class="modal fade" id="main-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">TITLE</h5>
@@ -48,11 +46,35 @@ include("../controllers/getGames.php");
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="removeOwnGame" type="button" class="btn btn-outline-success">REMOVE</button>
+                    <p id="validate-question">Are you sure ?</p>
+                    <button id="validate-yes" type="button" class="btn btn-success">YES, remove</button>
+                    <button id="validate-cancel" type="button" class="btn btn-danger">Cancel</button>
+                    <button id="removeOwnGame" type="button" class="btn btn-outline-danger">REMOVE</button>
                 </div>
             </div>
         </div>
     </div>
+    <!--
+    <div class="modal fade" id="modal-validate" tabindex="-1" role="dialog" aria-labelledby="modal-validate" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    CONTENU
+                </div>
+                <div class="modal-footer">
+                    <button id="buttonCancel" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button id="buttonValidate" type="button" class="btn btn-primary">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
     <?php include("../includes/js.php");?>
     <script src="../js/getGame.js"></script>
 </body>

@@ -15,15 +15,14 @@ include("../controllers/getGames.php");
 </head>
 <body>
     <?php include("../includes/navbar.php");?>
-    <?php include("../includes/search.php");?>
     <div class="container">
         <div class="row">
         <?php getGames($_SESSION['id'], 0, 1); ?>
         </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal game -->
     <div class="modal fade" id="main-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">TITLE</h5>
@@ -48,8 +47,12 @@ include("../controllers/getGames.php");
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <p id="validate-question">Are you sure ?</p>
+                    <button id="validate-add-owngames" type="button" class="btn btn-success">YES, add to own games</button>
+                    <button id="validate-remove-wishlist" type="button" class="btn btn-success">YES, remove from wishlist</button>
+                    <button id="validate-cancel" type="button" class="btn btn-danger">Cancel</button>
                     <button id="removeWishlistAddOwnGames" type="button" class="btn btn-outline-success">ADD TO OWN GAMES</button>
-                    <button id="removeWishlist" type="button" class="btn btn-outline-info">REMOVE OF WISHLIST</button>
+                    <button id="removeWishlist" type="button" class="btn btn-outline-danger">REMOVE FROM WISHLIST</button>
                 </div>
             </div>
         </div>

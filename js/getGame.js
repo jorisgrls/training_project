@@ -21,40 +21,98 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
             if(page == "owngames.php"){
                 /* REMOVE OWN GAME */
+                let validateQuestion = document.querySelector("#validate-question");
+                validateQuestion.style.display = "none";
+                let buttonValidateYes = document.querySelector("#validate-yes");
+                buttonValidateYes.style.display = "none";
+                let buttonValidateCancel = document.querySelector("#validate-cancel");
+                buttonValidateCancel.style.display = "none";
                 let removeOwnGameButton  = document.querySelector("#removeOwnGame");
+                removeOwnGameButton.style.display = "block";
                 removeOwnGameButton.addEventListener('click', function(){
-                    /*Ici il faudra mettre une modal de confirmation de suppression*/
-                    fetch('../controllers/removeGame.php?id='+id)
-                    .then(function(response){
-                        document.getElementById("id_"+id).style.display = "none";
-                        $("#main-modal").modal('hide');
+                    validateQuestion.style.display = "block";
+                    buttonValidateYes.style.display = "block";
+                    buttonValidateCancel.style.display = "block";
+                    removeOwnGameButton.style.display = "none";
+                    buttonValidateYes.addEventListener('click', function(){
+                        fetch('../controllers/removeGame.php?id='+id)
+                        .then(function(response){
+                            document.getElementById("id_"+id).style.display = "none";
+                            $("#main-modal").modal('hide');
+                            removeOwnGameButton.style.display = "block";
+                        })
+                    })
+                    buttonValidateCancel.addEventListener('click', function(){
+                        validateQuestion.style.display = "none";
+                        removeOwnGameButton.style.display = "block";
+                        buttonValidateYes.style.display = "none";
+                        buttonValidateCancel.style.display = "none";
                     })
                 });
             }
             else if(page == "wishlist.php"){
-                let removeWishlistButton = document.querySelector("#removeWishlist");
-                removeWishlistButton.addEventListener('click', function(){
-                    fetch('../controllers/removeGame.php?id='+id)
-                    .then(function(response){
-                        document.getElementById("id_"+id).style.display = "none";
-                        $("#main-modal").modal('hide');
-                    })
-                });
-
                 let removeWishlistAddOwnGamesButton = document.querySelector("#removeWishlistAddOwnGames");
+                removeWishlistAddOwnGamesButton.style.display = "block";
+                let removeWishlistButton = document.querySelector("#removeWishlist");
+                removeWishlistButton.style.display = "block";
+                let validateQuestion = document.querySelector("#validate-question");
+                validateQuestion.style.display = "none";
+                let validateAddOwnGames = document.querySelector("#validate-add-owngames");
+                validateAddOwnGames.style.display = "none";
+                let validateRemoveWishlist = document.querySelector("#validate-remove-wishlist");
+                validateRemoveWishlist.style.display = "none";
+                let validateCancel = document.querySelector("#validate-cancel");
+                validateCancel.style.display = "none";
+                removeWishlistButton.addEventListener('click', function(){
+                    validateQuestion.style.display = "block";
+                    validateRemoveWishlist.style.display = "block";
+                    validateCancel.style.display = "block";
+                    removeWishlistButton.style.display = "none";
+                    removeWishlistAddOwnGamesButton.style.display = "none";
+                    validateRemoveWishlist.addEventListener('click', function(){
+                        fetch('../controllers/removeGame.php?id='+id)
+                        .then(function(response){
+                            document.getElementById("id_"+id).style.display = "none";
+                            $("#main-modal").modal('hide');
+                            removeWishlistAddOwnGamesButton.style.display = "block";
+                            removeWishlistButton.style.display = "block";
+                        })
+                    })
+                    validateCancel.addEventListener('click', function(){
+                        validateQuestion.style.display = "none";
+                        removeWishlistButton.style.display = "block";
+                        removeWishlistAddOwnGamesButton.style.display = "block";
+                        validateRemoveWishlist.style.display = "none";
+                        validateCancel.style.display = "none";
+                    })
+                    
+                    
+                });
+                
                 removeWishlistAddOwnGamesButton.addEventListener('click', function(){
-                    fetch('../controllers/removeWishlistAddOwnGames.php?id='+id)
-                    .then(function(response){
-                        document.getElementById("id_"+id).style.display = "none";
-                        $("#main-modal").modal('hide');
+                    validateQuestion.style.display = "block";
+                    validateAddOwnGames.style.display = "block";
+                    validateCancel.style.display = "block";
+                    removeWishlistAddOwnGamesButton.style.display = "none";
+                    removeWishlistButton.style.display = "none";
+                    validateAddOwnGames.addEventListener('click', function(){
+                        fetch('../controllers/removeWishlistAddOwnGames.php?id='+id)
+                        .then(function(response){
+                            document.getElementById("id_"+id).style.display = "none";
+                            $("#main-modal").modal('hide');
+                            removeWishlistAddOwnGamesButton.style.display = "block";
+                            removeWishlistButton.style.display = "block";
+                        })
+                    })
+                    validateCancel.addEventListener('click', function(){
+                        validateQuestion.style.display = "none";
+                        removeWishlistAddOwnGamesButton.style.display = "block";
+                        removeWishlistButton.style.display = "block";
+                        validateAddOwnGames.style.display = "none";
+                        validateCancel.style.display = "none";
                     })
                 });
             }
         });
-    });
-
-    let closeButton = document.querySelector(".close");
-    closeButton.addEventListener('click', function(){
-        $("#main-modal").modal('hide');
-    });
+    });   
 });
