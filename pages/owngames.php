@@ -15,6 +15,7 @@ include("../controllers/getGames.php");
 </head>
 <body>
     <?php include("../includes/navbar.php");?>
+    <?php include("../includes/searchbar.php");?>
     <div class="container">
         <div class="row align-items-start">
             <?php getGames($_SESSION['id'], 1, 0); ?>
@@ -77,5 +78,6 @@ include("../controllers/getGames.php");
     -->
     <?php include("../includes/js.php");?>
     <script src="../js/getGame.js"></script>
+    <script src="../js/searchbar.js"></script>
 </body>
 </html>
