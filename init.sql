@@ -39,7 +39,7 @@ INSERT INTO editors(name) VALUES ('Iello'),('Gigamic');
 INSERT INTO games(title,description,nb_players,nb_recommanded_players,id_editor) VALUES ('Concept','Ceci est un jeu','2-6','3','1'),('Narak','Ceci est une description','2-4','4','2');
 INSERT INTO usersgames(user_id,game_id,is_wishlist,is_own) VALUES ('1','1',1,0),('1','2',0,1),('2','1',0,1),('2','2',0,1);
 
---INSERT INTO usersgames(user_id,game_id,is_wishlist,is_own) VALUES (16,1,0,1),(16,2,0,1),(16,3,0,1),(16,4,0,1),(16,5,0,1),(16,6,0,1);
+--INSERT INTO usersgames(user_id,game_id,is_wishlist,is_own) VALUES (16,1,1,0),(16,2,1,0),(16,3,1,0),(16,4,0,1),(16,5,0,1),(16,6,0,1);
 
 
 --UPDATE usersgames SET is_wishlist = 1, is_own = 0 WHERE user_id = $user_id AND game_id = $gameId
