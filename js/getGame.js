@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         const dataAction = buttonValidate[index].getAttribute("data-action");
                         fetch('../controllers/'+dataAction+'.php?id='+id)
                         .then(function(response){
-                            document.getElementById("id_"+id).style.display = "none";
+                            document.getElementById("game_"+id).style.display = "none";
                         })
                         $("#main-modal").modal('hide');
 
