@@ -10,7 +10,7 @@ include("../controllers/getGames.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toy Library : my games</title>
     <?php include("../includes/css.php");?>
-    <link href="../css/modal.css" rel="stylesheet">
+    <link href="../css/navbar.css" rel="stylesheet">
 </head>
 <body>
     <?php include("../includes/navbar.php");?>
@@ -45,10 +45,10 @@ include("../controllers/getGames.php");
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <p id="validate-question">Are you sure ?</p>
-                    <button id="validate-yes" type="button" class="btn btn-success">YES, remove</button>
-                    <button id="validate-cancel" type="button" class="btn btn-danger">Cancel</button>
-                    <button id="removeOwnGame" type="button" class="btn btn-outline-danger">REMOVE</button>
+                    <p id="validate-question" class="question-action">Are you sure ?</p>
+                    <button id="validate-yes" type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove</button>
+                    <button id="validate-cancel" type="button" class="btn btn-danger cancel-button">Cancel</button>
+                    <button id="removeOwnGame" type="button" class="btn btn-outline-danger action-button">REMOVE</button>
                 </div>
             </div>
         </div>
