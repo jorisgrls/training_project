@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', (event) => { 
-    let searchbar = document.querySelector("#searchbar");
-    let x;
-    searchbar.addEventListener('keypress', function(){
-        if(x){
-            clearTimeout(x);
+    const searchbar = document.querySelector("#searchbar");
+    let isWriting;
+    searchbar.addEventListener('keydown', function(){
+        if(isWriting){
+            clearTimeout(isWriting);
         }
-        x = setTimeout(isNotWriting, 2000);
+        isWriting = setTimeout(isNotWriting, 2000);
     });
 
     function isNotWriting(){

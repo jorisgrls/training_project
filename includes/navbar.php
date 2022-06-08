@@ -1,21 +1,24 @@
-<div class="container-fluid navbar-shadow">
-    <div class="container">
-        <div class="row">
-            <div class="col col-logo">
-                LOGO
-            </div>
-            <nav class="col col-pages">
-                <a class="" href="../pages/owngames.php">MY GAMES</a>
-                <a class="" href="../pages/wishlist.php">MY WISHLIST</a>
-            </nav>
-            <div class="col col-profile">
-                <div class="dropdown ml-auto">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container py-4">
+        <a class="navbar-brand" href="#">Toy Library</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class=" nav-item dropdown ">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo($_SESSION['name'])?></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../pages/owngames.php">My games</a>
+                        <a class="dropdown-item" href="../pages/wishlist.php">My wishlist</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../controllers/logout.php">Logout</a>
                     </div>
                 </div>
-            </div>
+            </ul>
+            <form class="d-flex w-50">
+                <input id="searchbar" class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </form>
         </div>
     </div>
-</div>
+</nav>

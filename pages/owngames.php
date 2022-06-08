@@ -10,12 +10,10 @@ include("../controllers/getGames.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toy Library : my games</title>
     <?php include("../includes/css.php");?>
-    <link href="../css/navbar.css" rel="stylesheet">
     <link href="../css/modal.css" rel="stylesheet">
 </head>
 <body>
     <?php include("../includes/navbar.php");?>
-    <?php include("../includes/searchbar.php");?>
     <div class="container">
         <div class="row align-items-start">
             <?php getGames($_SESSION['id'], 1, 0); ?>
@@ -55,27 +53,6 @@ include("../controllers/getGames.php");
             </div>
         </div>
     </div>
-    <!--
-    <div class="modal fade" id="modal-validate" tabindex="-1" role="dialog" aria-labelledby="modal-validate" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    CONTENU
-                </div>
-                <div class="modal-footer">
-                    <button id="buttonCancel" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button id="buttonValidate" type="button" class="btn btn-primary">CONFIRM</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
     <?php include("../includes/js.php");?>
     <script src="../js/getGame.js"></script>
     <script src="../js/searchbar.js"></script>

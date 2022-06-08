@@ -10,12 +10,10 @@ include("../controllers/getGames.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toy Library : my wishlist</title>
     <?php include("../includes/css.php");?>
-    <link href="../css/navbar.css" rel="stylesheet">
     <link href="../css/modal.css" rel="stylesheet">
 </head>
 <body>
     <?php include("../includes/navbar.php");?>
-    <?php include("../includes/searchbar.php");?>
     <div class="container">
         <div class="row">
         <?php getGames($_SESSION['id'], 0, 1); ?>
