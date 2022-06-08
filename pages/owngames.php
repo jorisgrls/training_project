@@ -10,7 +10,6 @@ include("../controllers/getGames.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toy Library : my games</title>
     <?php include("../includes/css.php");?>
-    <link href="../css/navbar.css" rel="stylesheet">
 </head>
 <body>
     <?php include("../includes/navbar.php");?>

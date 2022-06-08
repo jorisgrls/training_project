@@ -16,8 +16,11 @@
                     </div>
                 </div>
             </ul>
-            <form class="d-flex w-50">
+            <form class="d-flex w-50 flex-column">
                 <input id="searchbar" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <ul id="results">
+                    
+                </ul>
             </form>
         </div>
     </div>
