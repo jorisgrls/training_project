@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     function isNotWriting(){
-        /* BINGOOOOOO */
         results.style.display = "block";
         $.ajax({
             url:'../controllers/callApi.php?name='+searchbar.value,
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             success: function(data) {
                 data.forEach(element => {
                     console.log(element);
-                    results.innerHTML += "<li class='card-img-top name-game' id='"+element[1]+"'>"+element[0]+"</li>";
+                    results.innerHTML += "<li class='name-game' id='"+element[1]+"'>"+element[0]+"</li>";
                 });
                 const games = document.querySelectorAll(".name-game");
                 games.forEach( (game) => {
@@ -38,18 +37,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             url:'../controllers/gameInDatabase.php?id='+idGame,
             dataType: 'json',
             success: function(data) {
-                if(data){
-                    //appeler getGame.js ?
-                }else{
-                    //il n'existe pas et on l'ajoute à la bdd
-                    $.ajax({
-                        url:'../controllers/addGameInDatabase.php?id='+idGame,
-                        dataType: 'json',
-                        success: function(data) {
-                            $("#main-modal").modal('show');
-                        }
-                    });
-                }
+                //actions
+
             }
         });
     }

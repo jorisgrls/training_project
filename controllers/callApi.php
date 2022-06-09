@@ -9,9 +9,9 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_URL, $url); 
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
 
-$test = curl_exec($ch); 
+$request = curl_exec($ch); 
 
-$xml = new simpleXMLElement($test);
+$xml = new simpleXMLElement($request);
 
 //echo "<pre>".print_r($xml, true)."</pre>";
 $results = [];
