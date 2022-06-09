@@ -53,9 +53,11 @@
             </div>
             <div class="modal-footer">
                 <p id="validate-question" class="question-action">Are you sure ?</p>
-                <button id="validate-yes" type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove</button>
+                <button id="validate-add-owngames" type="button" class="btn btn-success validate-button" data-action="removeWishlistAddOwnGames">YES, add to own games</button>
+                <button id="validate-remove-wishlist" type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove from wishlist</button>
                 <button id="validate-cancel" type="button" class="btn btn-danger cancel-button">Cancel</button>
-                <button id="removeOwnGame" type="button" class="btn btn-outline-danger action-button">REMOVE</button>
+                <button id="removeWishlistAddOwnGames" type="button" class="btn btn-outline-success action-button">ADD TO OWN GAMES</button>
+                <button id="removeWishlist" type="button" class="btn btn-outline-danger action-button">REMOVE FROM WISHLIST</button>
             </div>
         </div>
     </div>
