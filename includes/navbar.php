@@ -11,6 +11,14 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="../pages/owngames.php">My games</a>
                         <a class="dropdown-item" href="../pages/wishlist.php">My wishlist</a>
+                        <a class="dropdown-item" href="../pages/alreadyPlay.php">Already play</a>
+                        <?php
+                        if($_SESSION['rank'] == 1){
+                            echo("<div class='dropdown-divider'></div>
+                                  <a class='dropdown-item text-danger' href='../controllers/devMajBdd.php'>DEV - Maj bdd</a>
+                                ");
+                        }
+                        ?>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../controllers/logout.php">Logout</a>
                     </div>
@@ -18,47 +26,11 @@
             </ul>
             <form class="d-flex w-50 flex-column position-relative">
                 <input id="searchbar" class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <ul id="results" style="display:none; top:38px; z-index:1" class="position-absolute left-0 bg-light">
-                    
+                <ul id="results" style="display:none; top:38px; z-index:1" class="position-absolute left-0 bg-light"> 
                 </ul>
             </form>
         </div>
     </div>
 </nav>
 
-<div class="modal fade" id="modal-searchbar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">TITLE</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row align-items-stretch">
-                    <div class="col-4">
-                        <img id="img-modal" src="" alt="game" class="img-fluid">
-                    </div>
-                    <div class="col-8">
-                        <div id="desc-modal" class="row"></div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <p id="nb-players-modal"></p>
-                </div>
-                <div class="row">
-                    <p id="editor-modal"></p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <p id="validate-question" class="question-action">Are you sure ?</p>
-                <button id="validate-add-owngames" type="button" class="btn btn-success validate-button" data-action="removeWishlistAddOwnGames">YES, add to own games</button>
-                <button id="validate-remove-wishlist" type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove from wishlist</button>
-                <button id="validate-cancel" type="button" class="btn btn-danger cancel-button">Cancel</button>
-                <button id="removeWishlistAddOwnGames" type="button" class="btn btn-outline-success action-button">ADD TO OWN GAMES</button>
-                <button id="removeWishlist" type="button" class="btn btn-outline-danger action-button">REMOVE FROM WISHLIST</button>
-            </div>
-        </div>
-    </div>
-</div>
+

@@ -10,12 +10,13 @@ include("../controllers/getGames.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toy Library : my wishlist</title>
     <?php include("../includes/css.php");?>
+    <link rel="stylesheet" href="../css/card.css">
 </head>
 <body>
     <?php include("../includes/navbar.php");?>
     <div class="container">
         <div class="row">
-        <?php getGames($_SESSION['id'], 0, 1); ?>
+        <?php getGames($_SESSION['id'], 0, 1, 0); ?>
         </div>
     </div>
     <!-- Modal game -->

@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
                     });
                 });
-            });dal-searchbar
+            });
         });
     });
 
