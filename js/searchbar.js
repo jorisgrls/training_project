@@ -12,14 +12,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     function isNotWriting(){
+        let value = searchbar.value;
+        value = value.replace(/ /g, '+');
         results.style.display = "block";
         $.ajax({
-            url:'../controllers/callApi.php?name='+searchbar.value,
+            url:'../controllers/callApi.php?name='+value,
             dataType: 'json',
             success: function(data) {
                 data.forEach(element => {
-                    console.log(element);
-                    results.innerHTML += "<li class='name-game' id='"+element[1]+"'>"+element[0]+"</li>";
+                    results.innerHTML += "<li class='list-group-item list-group-item-action name-game' id='"+element[1]+"'>"+element[0]+"</li>";
                 });
                 const games = document.querySelectorAll(".name-game");
                 games.forEach( (game) => {

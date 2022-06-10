@@ -25,8 +25,8 @@
                 </div>
             </ul>
             <form class="d-flex w-50 flex-column position-relative">
-                <input id="searchbar" class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <ul id="results" style="display:none; top:38px; z-index:1" class="position-absolute left-0 bg-light"> 
+                <input id="searchbar" class="form-control" type="search" placeholder="Search" aria-label="Search"> 
+                <ul id="results" style="display:none; top:38px; z-index:1" class="list-group position-absolute left-0 bg-light"> 
                 </ul>
             </form>
         </div>
