@@ -8,7 +8,7 @@ include("../controllers/getGames.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toy Library : my wishlist</title>
+    <title>Toy Library : games already play</title>
     <?php include("../includes/css.php");?>
     <link rel="stylesheet" href="../css/card.css">
 </head>
@@ -29,19 +29,19 @@ include("../controllers/getGames.php");
                 </div>
                 <div class="modal-body">
                     <div class="row align-items-stretch">
-                        <div class="col-4">
+                        <div class="col-4 d-flex justify-content-center align-items-center">
                             <img id="img-modal" src="" alt="game" class="img-fluid">
                         </div>
                         <div class="col-8">
-                            <div id="desc-modal" class="row"></div>
+                            <div class="row">
+                                <p id="desc-modal">DESCRIPTION</p>
+                            </div>
+                            <div class="row mb-0 mt-2">
+                                <p><span id="nb-players-modal" class="badge bg-primary px-2"></span>   <span id="playingtime-modal" class="badge bg-secondary px-2"></span>   <span id="editor-modal" class="badge bg-warning px-2"></span> </p>   
+                            </div>                          
                         </div>
                     </div>
-                    <div class="row mt-4">
-                        <p id="nb-players-modal"></p>
-                    </div>
-                    <div class="row">
-                        <p id="editor-modal"></p>
-                    </div>
+                  
                 </div>
                 <div class="modal-footer">
                     <p id="validate-question" class="question-action">Are you sure ?</p>

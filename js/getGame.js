@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     document.querySelector("#exampleModalLongTitle").innerHTML = data.title;
                     document.querySelector("#img-modal").src = data.img;
                     document.querySelector("#desc-modal").innerHTML = data.description;
-                    document.querySelector("#nb-players-modal").innerHTML = "Nombre de joueurs : "+data.nb_players;
-                    document.querySelector("#editor-modal").innerHTML = "Editeur : "+data.id_editor;
+                    document.querySelector("#nb-players-modal").innerHTML = data.nb_players+" players";
+                    document.querySelector("#editor-modal").innerHTML = data.name_editor;
+                    document.querySelector("#playingtime-modal").innerHTML = data.playingtime+" minuts";
                 }
             });
             buttonsAction.forEach( (buttonAction,index) => {
@@ -60,6 +61,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             buttonAction.style.display = "none";
         });
     }
+
+    const btnClose = document.querySelector(".btn-close");
+    btnClose.addEventListener('click', (event) => {
+        $("#main-modal").modal('hide');
+    });
 
 });
     

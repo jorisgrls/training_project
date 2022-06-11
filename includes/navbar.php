@@ -7,11 +7,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <div class=" nav-item dropdown ">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo($_SESSION['name'])?></button>
+                    <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo($_SESSION['name'])?></a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="../pages/owngames.php">My games</a>
                         <a class="dropdown-item" href="../pages/wishlist.php">My wishlist</a>
-                        <a class="dropdown-item" href="../pages/alreadyPlay.php">Already play</a>
+                        <a class="dropdown-item" href="../pages/alreadyplay.php">Already play</a>
                         <?php
                         if($_SESSION['rank'] == 1){
                             echo("<div class='dropdown-divider'></div>
@@ -20,7 +20,7 @@
                         }
                         ?>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../controllers/logout.php">Logout</a>
+                        <a class="dropdown-item" href="../controllers/logout.php"><b>Logout</b></a>
                     </div>
                 </div>
             </ul>
@@ -32,5 +32,41 @@
         </div>
     </div>
 </nav>
-
-
+<!--
+<div class="modal fade" id="searchbar-modal" tabindex="-1" role="dialog" aria-labelledby="searchbar-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">TITLE</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-stretch">
+                    <div class="col-4">
+                        <img id="img-modal" src="" alt="game" class="img-fluid">
+                    </div>
+                    <div class="col-8">
+                        <div id="desc-modal" class="row"></div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <p id="nb-players-modal"></p>
+                </div>
+                <div class="row">
+                    <p id="editor-modal"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p id="validate-question" class="question-action">Are you sure ?</p>
+                <button type="button" class="btn btn-success validate-button" data-action="removeAlreadyPlayAddOwnGames">YES, add to own games</button>
+                <button type="button" class="btn btn-success validate-button" data-action="addToWishlist">YES, add to wishlist</button>
+                <button type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove</button>
+                <button type="button" class="btn btn-danger cancel-button">Cancel</button>
+                <button type="button" class="btn btn-outline-success action-button">ADD TO OWN GAMES</button>
+                <button type="button" class="btn btn-outline-success action-button">ADD TO WISHLIST</button>
+                <button type="button" class="btn btn-outline-danger action-button">REMOVE</button>
+            </div>
+        </div>
+    </div>
+</div>
+-->

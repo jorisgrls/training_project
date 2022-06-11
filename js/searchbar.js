@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             results.style.display = "none";
             results.innerHTML = '';
         }
-        isWriting = setTimeout(isNotWriting, 2000);
+        isWriting = setTimeout(isNotWriting, 1000);
     });
 
     function isNotWriting(){
@@ -22,15 +22,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 data.forEach(element => {
                     results.innerHTML += "<li class='list-group-item list-group-item-action name-game' id='"+element[1]+"'>"+element[0]+"</li>";
                 });
-                const games = document.querySelectorAll(".name-game");
-                games.forEach( (game) => {
-                    game.addEventListener('click', (event) => {
-                        const id = game.getAttribute("id");
-                        checkGame(id);
-                    });
-                });
             }
         }); 
+        setTimeout(test,1100); //on attend que ce soit bien affiché
+
+        function test(){
+            const games = document.querySelectorAll(".name-game");
+            games.forEach( (game) => {
+                game.addEventListener('click', (event) => {
+                    let id = game.getAttribute("id");
+                    checkGame(id);
+                });
+            });
+        }
+        
     }
 
     function checkGame(idGame){
@@ -38,9 +43,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
             url:'../controllers/gameInDatabase.php?id='+idGame,
             dataType: 'json',
             success: function(data) {
-                //actions
-
+                console.log("ok");
+                results.style.display = "none";
+                results.innerHTML = '';
+                openModalSearchbar();
             }
         });
+    }
+
+    function openModalSearchbar(){
+        $("#searchbar-modal").modal('show');
     }
 });
