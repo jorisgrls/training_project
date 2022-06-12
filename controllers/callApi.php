@@ -1,7 +1,9 @@
 
 <?php 
     $gameName = $_GET['name'];
-    $url = "https://api.geekdo.com/xmlapi2/search?query=".$gameName; 
+    $name = str_replace(' ', '+', $gameName);
+    $url = "https://api.geekdo.com/xmlapi2/search?query=".$name; 
+    
 
     $ch = curl_init();  
 
@@ -21,4 +23,5 @@
     curl_close($ch);
 
     echo json_encode($results);
+    
 ?>
