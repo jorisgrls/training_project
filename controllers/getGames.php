@@ -16,7 +16,7 @@
                             <img class='card-img-top img-card' data-id='$id' src='$img' alt='image $title'>
                             <div class='card-body text-center'>
                                 <h5 class='card-title'>$title</h5>
-                                <p class='card-text'>$nb_players joueurs<br>$name_editor</p>
+                                <p class='card-text'>$nb_players players<br>$name_editor</p>
                                 ");
                                 echo("
                             </div>

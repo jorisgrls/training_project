@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', (event) => { 
 
     let modalButton = document.querySelectorAll(".card-img-top");
+    const buttonsAction = document.querySelectorAll('.action-button');
+    const questionAction = document.querySelector('.question-action');
+    const buttonValidate = document.querySelectorAll('.validate-button');
+    const buttonCancel = document.querySelector('.cancel-button');
+    let id = null;
+
     modalButton.forEach( modal => {
         modal.addEventListener('click', (event) => {
-            const id = modal.getAttribute("data-id");
-            const buttonsAction = document.querySelectorAll('.action-button');
-            const questionAction = document.querySelector('.question-action');
-            const buttonValidate = document.querySelectorAll('.validate-button');
-            const buttonCancel = document.querySelector('.cancel-button');
+            id = modal.getAttribute("data-id");
             $("#main-modal").modal('show');
             $.ajax({
                 url:'../controllers/getGame.php?id='+id,
@@ -21,28 +23,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     document.querySelector("#playingtime-modal").innerHTML = data.playingtime+" minuts";
                 }
             });
-            buttonsAction.forEach( (buttonAction,index) => {
-                displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
-                buttonAction.addEventListener('click', (event) => {
-                    hideButtonsAction(buttonsAction);
+        });
+    });
 
-                    questionAction.style.display = "block";
-                    buttonValidate[index].style.display = "block";
-                    buttonCancel.style.display = "block";
+    buttonsAction.forEach( (buttonAction,index) => {
+        //console.log(buttonAction); //ok
+        displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
+        buttonAction.addEventListener('click', (event) => {
+            //console.log(buttonAction); //ok
+            hideButtonsAction(buttonsAction);
 
-                    buttonValidate[index].addEventListener('click', (event) => {
-                        const dataAction = buttonValidate[index].getAttribute("data-action");
-                        fetch('../controllers/'+dataAction+'.php?id='+id)
-                        .then(function(response){
-                            document.getElementById("game_"+id).style.display = "none";
-                        })
-                        $("#main-modal").modal('hide');
-
-                    });
-                    buttonCancel.addEventListener('click', (event) => {
-                        displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
-                    });
+            questionAction.style.display = "block";
+            buttonValidate[index].style.display = "block";
+            buttonCancel.style.display = "block";
+            //console.log(buttonValidate);
+            const fct = () => {
+                console.log({
+                    button:buttonValidate[index],
+                    index,
+                    buttonAction
                 });
+                const dataAction = buttonValidate[index].getAttribute("data-action");
+                fetch('../controllers/'+dataAction+'.php?id='+id)
+                .then(function(response){
+                    document.getElementById("game_"+id).style.display = "none";
+                    displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
+                    buttonValidate[index].removeEventListener('click', fct);
+                })
+
+                $("#main-modal").modal('hide');
+            }
+            buttonValidate[index].addEventListener('click', fct);
+
+            buttonCancel.addEventListener('click', (event) => {
+                displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
+                buttonValidate[index].removeEventListener('click', fct);
             });
         });
     });

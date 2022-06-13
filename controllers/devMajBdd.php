@@ -8,10 +8,10 @@
     $deleteUsersgamesStatement->execute();
 
     $addUsersgamesQuery = "INSERT INTO usersgames (user_id, game_id, is_wishlist, is_own, alreadyplay) 
-                           VALUES ($user_id, 5, 0, 0, 1),
-                                  ($user_id, 6, 0, 0, 1),
-                                  ($user_id, 8, 0, 0, 1),
-                                  ($user_id, 9, 0, 1, 0),
+                           VALUES ($user_id, 8, 0, 0, 1),
+                                  ($user_id, 9, 0, 0, 1),
+                                  ($user_id, 7, 0, 0, 1),
+                                  ($user_id, 13, 0, 1, 0),
                                   ($user_id, 10, 0, 1, 0),
                                   ($user_id, 11, 0, 1, 0),
                                   ($user_id, 12, 1, 0, 0),

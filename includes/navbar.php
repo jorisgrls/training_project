@@ -32,32 +32,33 @@
         </div>
     </div>
 </nav>
+
 <!--
 <div class="modal fade" id="searchbar-modal" tabindex="-1" role="dialog" aria-labelledby="searchbar-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">TITLE</h5>
+                <h5 class="modal-searchbar-title" id="modal-searchbar-title">TITLE</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row align-items-stretch">
-                    <div class="col-4">
-                        <img id="img-modal" src="" alt="game" class="img-fluid">
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <img id="img-searchbar-modal" src="" alt="game" class="img-fluid">
                     </div>
                     <div class="col-8">
-                        <div id="desc-modal" class="row"></div>
+                        <div class="row">
+                            <p id="desc-searchbar-modal">DESCRIPTION</p>
+                        </div>
+                        <div class="row mb-0 mt-2">
+                            <p><span id="nb-players-searchbar-modal" class="badge bg-primary px-2"></span>   <span id="playingtime-searchbar-modal" class="badge bg-secondary px-2"></span>   <span id="editor-searchbar-modal" class="badge bg-warning px-2"></span> </p>   
+                        </div>                          
                     </div>
                 </div>
-                <div class="row mt-4">
-                    <p id="nb-players-modal"></p>
-                </div>
-                <div class="row">
-                    <p id="editor-modal"></p>
-                </div>
+                
             </div>
             <div class="modal-footer">
-                <p id="validate-question" class="question-action">Are you sure ?</p>
+                <p class="question-action">Are you sure ?</p>
                 <button type="button" class="btn btn-success validate-button" data-action="removeAlreadyPlayAddOwnGames">YES, add to own games</button>
                 <button type="button" class="btn btn-success validate-button" data-action="addToWishlist">YES, add to wishlist</button>
                 <button type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove</button>
@@ -69,4 +70,4 @@
         </div>
     </div>
 </div>
--->
+                    -->
