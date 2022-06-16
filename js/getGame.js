@@ -27,22 +27,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     buttonsAction.forEach( (buttonAction,index) => {
-        //console.log(buttonAction); //ok
         displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
         buttonAction.addEventListener('click', (event) => {
-            //console.log(buttonAction); //ok
             hideButtonsAction(buttonsAction);
-
             questionAction.style.display = "block";
             buttonValidate[index].style.display = "block";
             buttonCancel.style.display = "block";
-            //console.log(buttonValidate);
             const fct = () => {
-                console.log({
-                    button:buttonValidate[index],
-                    index,
-                    buttonAction
-                });
                 const dataAction = buttonValidate[index].getAttribute("data-action");
                 fetch('../controllers/'+dataAction+'.php?id='+id)
                 .then(function(response){

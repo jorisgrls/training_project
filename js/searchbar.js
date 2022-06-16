@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 }   
             }
         }); 
-        setTimeout(resultsManagement,1100); //on attend que ce soit bien affiché
+        setTimeout(resultsManagement,1100); //wait for the results to be displayed
     }
 
     function resultsManagement(){
