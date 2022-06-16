@@ -1,6 +1,7 @@
 <?php
     session_start();
     include(__DIR__."/../config.php"); 
+    
     $gameId = $_GET['id'];
     $action = $_GET['action'];
     $user_id = $_SESSION['id'];

@@ -17,8 +17,13 @@
 
     $results = [];
 
+    $i = 0;
     foreach($xml->item as $item) {
         $results[] = [$item->name['value']->__toString(),$item['id']->__toString()];
+        $i++;
+        if($i == 10) {
+            break;
+        }
     }
     curl_close($ch);
 
