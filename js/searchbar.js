@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.querySelectorAll("#searchbar-modal .action-button").forEach(button => {
             button.setAttribute("data-id",game.id);
         });
-        initButtonsAction("#searchbar-modal");
+        initButtonsAction("#searchbar-modal",true);
         const addToOwnGamesButton = document.querySelector("#addToOwnGamesButton");
         const addToWishlistButton = document.querySelector("#addToWishlistButton");
         const addToAlreadyPlayButton = document.querySelector("#addToAlreadyPlayButton");

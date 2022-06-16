@@ -1,4 +1,4 @@
-function initButtonsAction(selector){
+function initButtonsAction(selector,reload=false){
     const buttonsAction = document.querySelectorAll(`${selector} .action-button`);
     const questionAction = document.querySelector(`${selector} .question-action`);
     const buttonValidate = document.querySelectorAll(`${selector} .validate-button`);
@@ -15,11 +15,13 @@ function initButtonsAction(selector){
                 const dataAction = buttonValidate[index].getAttribute("data-action");
                 fetch(`../controllers/dataActions.php?action=${dataAction}&id=${gameId}`) 
                 .then(function(response){
+                    if(reload){
+                        window.location.reload()
+                    }
                     document.getElementById("game_"+gameId).style.display = "none";
                     displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
                     buttonValidate[index].removeEventListener('click', fct);
                 })
-
                 $(selector).modal('hide');
             }
             buttonValidate[index].addEventListener('click', fct);
