@@ -54,9 +54,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             url:'../controllers/gameInDatabase.php?id='+idGame,
             dataType: 'json',
             success: function(data) {
+                console.log(data);
                 results.style.display = "none";
                 results.innerHTML = '';
-                console.log(data);
                 openModalSearchbar(data);
             }
         });
@@ -69,6 +69,49 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.querySelector("#nb-players-searchbar-modal").innerHTML = game.nb_players+" players";
         document.querySelector("#editor-searchbar-modal").innerHTML = game.name_editor;
         document.querySelector("#playingtime-searchbar-modal").innerHTML = game.playingtime+" minuts";
+        document.querySelectorAll("#searchbar-modal .action-button").forEach(button => {
+            button.setAttribute("data-id",game.id);
+        });
+        initButtonsAction("#searchbar-modal");
+        // GESTION DES BOUTONS
+        const addToOwnGamesButton = document.querySelector("#addToOwnGamesButton");
+        const addToWishlistButton = document.querySelector("#addToWishlistButton");
+        const addToAlreadyPlayButton = document.querySelector("#addToAlreadyPlayButton");
+        const removeOwnGamesButton = document.querySelector("#removeOwnGamesButton");
+        const removeWishlistButton = document.querySelector("#removeWishlistButton");
+        const removeAlreadyPlayButton = document.querySelector("#removeAlreadyPlayButton");
+        if(game.is_own == 1){
+            addToOwnGamesButton.style.display = "none";
+            addToWishlistButton.style.display = "none";
+            addToAlreadyPlayButton.style.display = "none";
+            removeOwnGamesButton.style.display = "block";
+            removeWishlistButton.style.display = "none";
+            removeAlreadyPlayButton.style.display = "none";
+        }
+        else if(game.is_wishlist == 1){
+            addToOwnGamesButton.style.display = "block";
+            addToWishlistButton.style.display = "none";
+            addToAlreadyPlayButton.style.display = "none";
+            removeOwnGamesButton.style.display = "none";
+            removeWishlistButton.style.display = "block";
+            removeAlreadyPlayButton.style.display = "none";
+        }
+        else if(game.alreadyplay == 1){
+            addToOwnGamesButton.style.display = "block";
+            addToWishlistButton.style.display = "block";
+            addToAlreadyPlayButton.style.display = "none";
+            removeOwnGamesButton.style.display = "none";
+            removeWishlistButton.style.display = "none";
+            removeAlreadyPlayButton.style.display = "block";
+        }
+        else{
+            addToOwnGamesButton.style.display = "block";
+            addToWishlistButton.style.display = "block";
+            addToAlreadyPlayButton.style.display = "block";
+            removeOwnGamesButton.style.display = "none";
+            removeWishlistButton.style.display = "none";
+            removeAlreadyPlayButton.style.display = "none";
+        }
         $("#searchbar-modal").modal('show');
     }
 

@@ -33,12 +33,12 @@
     </div>
 </nav>
 
-<!--
-<div class="modal fade" id="searchbar-modal" tabindex="-1" role="dialog" aria-labelledby="searchbar-modal" aria-hidden="true">
+
+<div class="modal fade" id="searchbar-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-searchbar-title" id="modal-searchbar-title">TITLE</h5>
+                <h5 class="modal-title" id="modal-searchbar-title">TITLE</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -58,16 +58,21 @@
                 
             </div>
             <div class="modal-footer">
-                <p class="question-action">Are you sure ?</p>
+                <p id="validate-question" class="question-action">Are you sure ?</p>
                 <button type="button" class="btn btn-success validate-button" data-action="removeAlreadyPlayAddOwnGames">YES, add to own games</button>
                 <button type="button" class="btn btn-success validate-button" data-action="addToWishlist">YES, add to wishlist</button>
-                <button type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove</button>
+                <button type="button" class="btn btn-success validate-button" data-action="addToWishlist">YES, add to already play</button>
+                <button type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove from owngames</button>
+                <button type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove from wishlist</button>
+                <button type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove from already play</button>
                 <button type="button" class="btn btn-danger cancel-button">Cancel</button>
-                <button type="button" class="btn btn-outline-success action-button">ADD TO OWN GAMES</button>
-                <button type="button" class="btn btn-outline-success action-button">ADD TO WISHLIST</button>
-                <button type="button" class="btn btn-outline-danger action-button">REMOVE</button>
+                <button id="addToOwnGamesButton" type="button" class="btn btn-outline-success action-button">ADD TO OWN GAMES</button>
+                <button id="addToWishlistButton" type="button" class="btn btn-outline-success action-button">ADD TO WISHLIST</button>
+                <button id="addToAlreadyPlayButton" type="button" class="btn btn-outline-success action-button">ADD TO ALREADY PLAY</button>
+                <button id="removeOwnGamesButton" type="button" class="btn btn-outline-danger action-button">REMOVE FROM OWNGAMES</button>
+                <button id="removeWishlistButton" type="button" class="btn btn-outline-danger action-button">REMOVE FROM WISHLIST</button>
+                <button id="removeAlreadyPlayButton" type="button" class="btn btn-outline-danger action-button">REMOVE FROM ALREADY PLAY</button>
             </div>
         </div>
     </div>
 </div>
-                    -->  

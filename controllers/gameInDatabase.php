@@ -1,14 +1,34 @@
 <?php
+    session_start();
     $gameId = $_GET['id'];
-
+    $userId = $_SESSION['id'];
     include(__DIR__."/../config.php"); 
     
     if(!gameInDatabase($gameId)){
         addGameInDatabase($gameId);
     }
-    echo(gameInDatabase($gameId));
+    echo(json_encode(getGame($gameId, $userId)));
 
     
+    function getGame($gameId, $userId){
+        global $login;
+        $game = gameInDatabase($gameId);
+        $addGameQuery = "SELECT ug.is_own, ug.is_wishlist, ug.alreadyplay FROM games g INNER JOIN usersgames ug ON ug.game_id = g.id WHERE ug.user_id = $userId AND g.id_api = $gameId";
+        $addGameStatement = $login->prepare($addGameQuery);
+        $addGameStatement->execute();
+        $userGame = $addGameStatement->fetch(PDO::FETCH_ASSOC);
+        if($userGame){
+            $game = array_merge($game,$userGame);
+        }
+        else{
+            $game = array_merge($game,[
+                'is_own' => 0,
+                'is_wishlist' => 0,
+                'alreadyplay' => 0
+            ]);
+        }
+        return $game;
+    }
 
     function gameInDatabase($gameId){
         global $login;
@@ -17,7 +37,7 @@
         $addGameStatement->execute();
         $game = $addGameStatement->fetch(PDO::FETCH_ASSOC);
         if($game){
-            return json_encode($game);
+            return $game;
         }else{
             return false;
         }
