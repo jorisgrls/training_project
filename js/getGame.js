@@ -13,7 +13,7 @@ function initButtonsAction(selector){
             buttonCancel.style.display = "block";
             const fct = () => {
                 const dataAction = buttonValidate[index].getAttribute("data-action");
-                fetch('../controllers/'+dataAction+'.php?id='+gameId)
+                fetch(`../controllers/dataActions.php?action=${dataAction}&id=${gameId}`) 
                 .then(function(response){
                     document.getElementById("game_"+gameId).style.display = "none";
                     displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
@@ -23,7 +23,6 @@ function initButtonsAction(selector){
                 $(selector).modal('hide');
             }
             buttonValidate[index].addEventListener('click', fct);
-
             buttonCancel.addEventListener('click', (event) => {
                 displayButtonAction(buttonsAction, questionAction, buttonValidate[index], buttonCancel);
                 buttonValidate[index].removeEventListener('click', fct);
