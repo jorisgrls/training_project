@@ -44,7 +44,7 @@ include("../controllers/getGames.php");
                 </div>
                 <div class="modal-footer">
                     <p id="validate-question" class="question-action">Are you sure ?</p>
-                    <button id="validate-add-owngames" type="button" class="btn btn-success validate-button" data-action="removeWishlistAddOwnGames">YES, add to own games</button>
+                    <button id="validate-add-owngames" type="button" class="btn btn-success validate-button" data-action="addOwnGames">YES, add to own games</button>
                     <button id="validate-remove-wishlist" type="button" class="btn btn-success validate-button" data-action="removeGame">YES, remove from wishlist</button>
                     <button id="validate-cancel" type="button" class="btn btn-danger cancel-button">Cancel</button>
                     <button id="removeWishlistAddOwnGames" type="button" class="btn btn-outline-success action-button">ADD TO OWN GAMES</button>

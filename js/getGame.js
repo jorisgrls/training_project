@@ -20,7 +20,7 @@ function initButtonsAction(selector){
                     buttonValidate[index].removeEventListener('click', fct);
                 })
 
-                $("#main-modal").modal('hide');
+                $(selector).modal('hide');
             }
             buttonValidate[index].addEventListener('click', fct);
 

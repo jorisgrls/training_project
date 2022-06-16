@@ -31,10 +31,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     data.forEach(element => {
                         results.innerHTML += "<li class='list-group-item list-group-item-action name-game' id='"+element[1]+"'>"+element[0]+"</li>";
                     });
+                    resultsManagement();
                 }   
             }
         }); 
-        setTimeout(resultsManagement,1100); //wait for the results to be displayed
+        //setTimeout(resultsManagement,3100); //wait for the results to be displayed
     }
 
     function resultsManagement(){
@@ -73,7 +74,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             button.setAttribute("data-id",game.id);
         });
         initButtonsAction("#searchbar-modal");
-        // GESTION DES BOUTONS
         const addToOwnGamesButton = document.querySelector("#addToOwnGamesButton");
         const addToWishlistButton = document.querySelector("#addToWishlistButton");
         const addToAlreadyPlayButton = document.querySelector("#addToAlreadyPlayButton");
